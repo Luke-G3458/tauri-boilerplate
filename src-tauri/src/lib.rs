@@ -8,9 +8,14 @@ use commands::window::force_close_window;
 use crate::commands::sample::greet;
 
 fn create_main_window(app: &tauri::App) -> Result<(), Box<dyn std::error::Error>> {
+    let title = app
+        .config()
+        .product_name
+        .as_deref()
+        .unwrap_or("Tauri App");
     let mut builder =
         tauri::WebviewWindowBuilder::new(app, "main", tauri::WebviewUrl::App(Default::default()))
-            .title("Synapse")
+            .title(title)
             .maximized(true);
 
     #[cfg(target_os = "macos")]

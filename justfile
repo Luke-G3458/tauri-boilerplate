@@ -8,3 +8,9 @@ build:
 
 test:
 		cd src-tauri && cargo test --workspace 2>&1
+
+setup:
+		bun run setup
+
+check:
+		bun run check

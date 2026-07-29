@@ -17,9 +17,7 @@ const BottomBar = () => {
         }}
         className="hover:bg-black/10 w-6 h-6 flex justify-center items-center rounded"
       >
-        <PanelLeft
-          className={cx("w-4", isLeftPanelOpen ? "text-black/70" : "text-black/50")}
-        />
+        <PanelLeft className={cx("w-4", isLeftPanelOpen ? "text-black/70" : "text-black/50")} />
       </button>
       <button
         onClick={() => {
@@ -27,9 +25,7 @@ const BottomBar = () => {
         }}
         className="hover:bg-black/10 w-6 h-6 flex justify-center items-center rounded"
       >
-        <PanelRight
-          className={cx("w-4", isRightPanelOpen ? "text-black/70" : "text-black/50")}
-        />
+        <PanelRight className={cx("w-4", isRightPanelOpen ? "text-black/70" : "text-black/50")} />
       </button>
     </div>
   );

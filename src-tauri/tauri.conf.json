@@ -1,12 +1,12 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "tauri-boilerplate",
+  "productName": "Tauri Boilerplate",
   "version": "0.1.0",
-  "identifier": "com.Luke-G3458.tauri-boilerplate",
+  "identifier": "com.lukegerth.tauri-boilerplate",
   "build": {
-    "beforeDevCommand": "npm run dev",
+    "beforeDevCommand": "bun run dev",
     "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "npm run build",
+    "beforeBuildCommand": "bun run build",
     "frontendDist": "../dist"
   },
   "app": {
