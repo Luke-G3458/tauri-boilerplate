@@ -1,8 +1,10 @@
+import type { Window } from "@tauri-apps/api/window";
+
 export default function WindowsControl({
   appWindow,
   isMaximized,
 }: {
-  appWindow: any;
+  appWindow: Window;
   isMaximized: boolean;
 }) {
   return (

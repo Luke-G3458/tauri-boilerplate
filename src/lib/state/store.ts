@@ -1,11 +1,11 @@
-import React, { useContext, useReducer, createContext } from "react";
+import { createContext, useContext, type Dispatch } from "react";
 
 export const MIN_LEFT_PANEL_WIDTH = 160;
 export const MAX_LEFT_PANEL_WIDTH = 420;
 export const MIN_RIGHT_PANEL_WIDTH = 160;
 export const MAX_RIGHT_PANEL_WIDTH = 420;
 
-const INITIAL_STATE: GlobalState = {
+export const INITIAL_STATE: GlobalState = {
   leftPanel: {
     width: 200,
     isOpen: true,
@@ -20,7 +20,7 @@ const INITIAL_STATE: GlobalState = {
   },
 };
 
-type GlobalState = {
+export type GlobalState = {
   leftPanel: {
     width: number;
     isOpen: boolean;
@@ -35,18 +35,8 @@ type GlobalState = {
   };
 };
 
-const GlobalStateContext = createContext<GlobalState>(INITIAL_STATE);
-const GlobalStateDispatchContext = createContext<React.Dispatch<Action>>(() => {});
-
-export const GlobalStateProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [globalState, dispatch] = useReducer(globalStateReducer, INITIAL_STATE);
-
-  return (
-    <GlobalStateContext value={globalState}>
-      <GlobalStateDispatchContext value={dispatch}>{children}</GlobalStateDispatchContext>
-    </GlobalStateContext>
-  );
-};
+export const GlobalStateContext = createContext<GlobalState>(INITIAL_STATE);
+export const GlobalStateDispatchContext = createContext<Dispatch<Action>>(() => {});
 
 export function useGlobalState() {
   return useContext(GlobalStateContext);
